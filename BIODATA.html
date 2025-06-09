@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tessa Maria Johnson Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background:url(https://t3.ftcdn.net/jpg/04/35/60/34/360_F_435603418_Wq7wq8dPK1lJk2p3MZhENa52g9DEHGoe.jpg)no-repeat center center fixed;
+      background-size: cover;
+      color: #f4f4f4;
+      padding: 2rem;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: #f4f4f4;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 300;
+    }
+
+    .hero {
+      display: flex;
+      margin-top: 4rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-text {
+      max-width: 50%;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .hero-text p {
+      margin-top: 1rem;
+      line-height: 1.6;
+      color: #d0d0d0;
+    }
+
+    .social-icons {
+      margin-top: 1rem;
+    }
+
+    .social-icons i {
+      margin-right: 1rem;
+      cursor: pointer;
+      color: #ffc107;
+    }
+
+    .logos {
+      display: flex;
+      justify-content: space-around;
+      background-color: rgba(43, 43, 64, 0.6);
+      padding: 1rem;
+      margin: 3rem 0;
+      border-radius: 10px;
+    }
+
+    .section {
+      margin-top: 2rem;
+    }
+
+    .section h2 {
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .card {
+      background-color: rgba(43, 43, 64, 0.7);
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 12px;
+      color: #f0f0f0;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideInLeft 1s ease forwards;
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      animation: slideInRight 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+      const options = {
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            entry.target.style.animationDelay = `${Array.from(fadeElements).indexOf(entry.target) * 0.2}s`;
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+
+      fadeElements.forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="slide-in-left">
+    <h2>Tessa</h2>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <section class="hero slide-in-right">
+    <div class="hero-text">
+      <p>Hello, I’m</p>
+      <h1>Tessa Maria Johnson</h1>
+      <p>I’m a Computer Science student passionate about technology, programming, and design. I love exploring new skills, building creative digital projects, and continuously learning to grow in the CS field.</p>
+      <div class="social-icons">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-pinterest"></i>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="your-photo.jpg" alt="Tessa Maria Johnson" style="width: 300px; border-radius: 50%;">
+    </div>
+  </section>
+
+  <div class="logos fade-in">
+    <span>Meta</span>
+    <span>Google</span>
+    <span>LinkedIn</span>
+    <span>Slack</span>
+  </div>
+
+  <section class="section fade-in">
+    <h2>What Can I Do For Your Needs</h2>
+    <p>As a CS student, I am skilled in key areas essential to the tech world, focusing on learning, experimenting, and growing through real-world projects.</p>
+    <p>250+ Projects Completed | 100+ Community Network</p>
+  </section>
+
+  <section class="section">
+    <div class="card fade-in">UI/UX Design — 117 Projects</div>
+    <div class="card fade-in">Front End Development — 84 Projects</div>
+    <div class="card fade-in">Mobile App Development — 32 Projects</div>
+    <div class="card fade-in">Python Programming — 45 Projects</div>
+    <div class="card fade-in">C Programming — 39 Projects</div>
+    <div class="card fade-in">Full Stack Web Development — 50 Projects</div>
+  </section>
+</body>
+</html>
